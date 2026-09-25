@@ -223,13 +223,9 @@
       white-space: nowrap;
       border-right: 3px solid #180F43;
     }
-    /* NOSOTROS (8 letras): duración acorde a la palabra */
+    /* NOSOTROS SOMOS (14 caracteres): una sola animación de escritura */
     .typewriter-title-largo {
-      animation: typewriter 2s steps(8, end) forwards, caret-off 0s 2s forwards;
-    }
-    /* SOMOS (5 letras): animación más corta, acorde a la palabra */
-    .typewriter-title-corto {
-      animation: typewriter 1.2s steps(5, end) forwards, caret-off 0s 1.2s forwards;
+      animation: typewriter 2.4s steps(14, end) forwards, caret-off 0s 2.4s forwards;
     }
     @keyframes typewriter {
       from { width: 0; }
@@ -447,11 +443,8 @@
   <!-- Main Content -->
   <main class="w-full max-w-2xl mt-[100px] px-6 pb-4 flex flex-col relative">
 
-    <!-- Título apilado: NOSOTROS / SOMOS -->
-    <div class="w-full flex flex-col items-center gap-1">
-      <h2 class="typewriter-title typewriter-title-largo font-display text-[clamp(2.25rem,8vw,4.5rem)] font-bold text-text-dark-blue tracking-tight text-center">NOSOTROS</h2>
-      <h2 class="typewriter-title typewriter-title-corto font-display text-[clamp(2.25rem,8vw,4.5rem)] font-bold text-text-dark-blue tracking-tight text-center">SOMOS</h2>
-    </div>
+    <!-- Título NOSOTROS SOMOS: una sola línea y una sola animación de escritura -->
+    <h2 class="typewriter-title typewriter-title-largo font-display text-[clamp(1.6rem,7vw,4.5rem)] font-bold text-text-dark-blue tracking-tight text-center">NOSOTROS SOMOS</h2>
   </main>
 
   <!-- BEGIN: Personajes LUKA$H (los 4 assets SVG, 2x2 en móvil y fila en pantallas grandes) -->
