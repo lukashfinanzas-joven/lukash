@@ -389,8 +389,18 @@
             transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform-origin: top center;
         }
+        /* Al mostrar el escenario, la ruleta queda PEQUEÑA arriba (colapsa su altura)
+           y la pregunta+respuestas aparecen debajo en flujo normal. */
         #wheel-wrapper.state-scenario {
-            transform: scale(0.4) translateY(-80px);
+            height: clamp(4.5rem, 18vw, 6.5rem);
+        }
+        #wheel-wrapper.state-scenario .wheel-container {
+            width: clamp(4.5rem, 18vw, 6.5rem);
+            margin-bottom: 0;
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), margin-bottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #wheel-wrapper.state-scenario #spinButton {
+            display: none;
         }
 
         /* ===== Ajustes responsive para móvil (hasta 640px) ===== */
@@ -406,8 +416,9 @@
                 padding: 0 0.5rem;
                 margin-top: 1rem;
             }
-            /* Al mostrar el escenario, la ruleta se oculta en móvil para no ocupar espacio */
-            #wheel-wrapper.state-scenario { display: none; }
+            /* Al mostrar el escenario, la ruleta se reduce a una versión pequeña arriba */
+            #wheel-wrapper.state-scenario { height: clamp(3.5rem, 18vw, 5.5rem); }
+            #wheel-wrapper.state-scenario .wheel-container { width: clamp(3.5rem, 18vw, 5.5rem); }
             /* Opciones en 1 sola columna para textos largos legibles */
             #optionsGrid { grid-template-columns: 1fr; }
             .option-btn { font-size: 0.9rem; }
@@ -426,12 +437,9 @@
             transform: translateY(20px);
             pointer-events: none;
             transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: absolute;
-            top: 40%;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+            position: relative;
+            margin: 1.5rem auto 0;
+            padding: 0 0.5rem;
             z-index: 30;
             display: flex;
             flex-direction: column;
@@ -566,13 +574,24 @@
             box-shadow: 0 0px 0 0 rgba(0,0,0,0.5);
         }
 
+        /* Fila de acciones (HISTORIAL y VOLVER A GIRAR) debajo de toda la info */
+        .actions-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.75rem;
+            width: 100%;
+            z-index: 40;
+        }
         #reset-btn {
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.5s ease;
             transition-delay: 0.8s;
         }
-        #scenario-container.active ~ #reset-btn {
+        #scenario-container.active ~ .actions-row #reset-btn {
             opacity: 1;
             pointer-events: auto;
         }
@@ -775,13 +794,16 @@
 <p id="feedbackText"></p>
 </div>
 </div>
-<button class="absolute bottom-4 right-4 z-40 btn-chip" id="reset-btn">
+<!-- Fila de acciones: van DEBAJO de toda la información del escenario -->
+<div class="actions-row">
+<button class="btn-chip" id="reset-btn">
         VOLVER A GIRAR
     </button>
 <!-- Botón para abrir el historial -->
-<button class="absolute bottom-4 left-4 z-40 btn-chip" id="historyBtn">
+<button class="btn-chip" id="historyBtn">
         HISTORIAL
     </button>
+</div>
 <!-- Panel de historial de preguntas -->
 <div id="historyPanel" class="hidden fixed inset-x-4 top-20 bottom-24 z-50 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-[28rem] bg-white rounded-2xl shadow-2xl border border-outline/20 flex flex-col overflow-hidden">
 <div class="flex justify-between items-center px-5 py-4 border-b border-outline/20">

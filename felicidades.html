@@ -480,12 +480,11 @@
         }
 
         /* ===== Chat flotante ===== */
-        /* El body es position:relative en esta pantalla (flex relative), así que el
-           chat va en FIXED para anclarse al viewport y no al fondo del documento. */
-        #chat-window.chat-window {
-            position: fixed;
+        /* El chat vive DENTRO del contenedor FAB fixed (bottom-6 right-6 z-50),
+           igual que en el index, anclado por `absolute bottom-0 right-0`. */
+        .chat-window {
             transform-origin: bottom right;
-            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         /* Explosion de particulas del FAB (mismo comportamiento que el index) */
         .fab-btn { transition: all 0.3s ease; }
@@ -807,10 +806,10 @@ Has reunido las pistas, resuelto los casos y dado tus primeros pasos en el mundo
 <div class="w-16 h-16 hover:scale-110 active:scale-95 transition-transform cursor-pointer fab-shadow rounded-full overflow-hidden fab-btn" id="fab-button">
 <img alt="Savings" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpMupF3DRCHRmsBS_rUtkT1-WqHypjupX8R9iQvvGi3EG3ViEzcMziqN99zpl_HUd8NO5sDhby4NXetH82hfeb3_0-l8aro1geLpXun5UxmrxVsX3q7b8NIVzD3gDapNi5D8LUzZurdxGH51BErQKKw3E7Anf7ZhckVJailmRMUOfbepFnoCb73ze5E6xgcuwy29GeoOKK4oHK_-1D2uFGdXfFF3eU0TgY92E-fwmM2UPCqdLhfUvlgGLshBv0973Ghg">
 </div>
-</div>
 <!-- Chat Modal Window (chat real de LUKA$H via iframe) -->
 <div class="chat-window absolute bottom-0 right-0 w-[calc(100vw-3rem)] md:w-80 h-96 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border-2 border-lukash-pink flex flex-col overflow-hidden hidden-chat" id="chat-window">
 <iframe id="chat-frame" title="Chat de LUKASH" src="lukash-chat.html?nueva=1"></iframe>
+</div>
 </div>
 
 <script data-purpose="menu-functionality">
