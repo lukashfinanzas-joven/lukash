@@ -77,7 +77,7 @@
       box-shadow: 0 2px 0 #ab2a66;
     }
     .fab-shadow { box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-    .chat-window { transform-origin: bottom right; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    #chat-window.chat-window { position: fixed; transform-origin: bottom right; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .chat-window.hidden-chat { transform: scale(0); opacity: 0; pointer-events: none; }
     .chat-window.active-chat { transform: scale(1); opacity: 1; pointer-events: auto; }
     #chat-frame { width: 100%; height: 100%; border: 0; display: block; }
@@ -253,7 +253,7 @@
 </div>
 <!-- END: Mobile Menu Drawer -->
 <!-- BEGIN: MainContent -->
-<main class="relative flex items-center justify-center min-h-[calc(100vh-64px)] z-20 overflow-hidden p-4">
+<main class="relative flex items-center justify-center min-h-[calc(100vh-64px)] z-20 overflow-hidden pt-16 p-4">
 <!-- Floating Star Decor Left -->
 <div class="absolute top-24 left-12 w-24 h-24 z-10 animate-float" style="animation-delay: -1s">
 <svg class="w-full h-full drop-shadow-2xl fill-[#FF6B9E] opacity-90" viewBox="0 0 100 100">
@@ -405,6 +405,10 @@
       mobileCategoriasArrow.classList.toggle('rotate-180', isHidden);
     });
 </script>
+<style data-purpose="chat-explosion-lukash">
+    .particle { position: absolute; border-radius: 50%; pointer-events: none; animation: explode 0.6s ease-out forwards; }
+    @keyframes explode { 0% { transform: scale(0) translate(0, 0); opacity: 1; } 100% { transform: scale(1) translate(var(--tx), var(--ty)); opacity: 0; } }
+    </style>
 <script data-purpose="chat-functionality">
   (function () {
     const fabButton = document.getElementById('fab-button');
@@ -418,19 +422,49 @@
   }
     if (!fabButton || !chatWindow || !chatFrame) return;
 
+    const particleContainer = document.getElementById('particle-container');
+    const brandColors = ['#EE4599', '#180F43', '#E7C11F', '#A7EB5D'];
+    function createParticles(x, y, count = 30) {
+      if (!particleContainer) return;
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        const size = Math.random() * 10 + 5;
+        const color = brandColors[Math.floor(Math.random() * brandColors.length)];
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.backgroundColor = color;
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 50 + Math.random() * 100;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        particleContainer.appendChild(particle);
+        setTimeout(() => particle.remove(), 600);
+      }
+    }
+
     fabButton.addEventListener('click', (e) => {
       if (chatWindow.classList.contains('active-chat')) {
         hideChatWindow();
       } else {
-        chatWindow.classList.remove('hidden-chat');
-        chatWindow.classList.add('active-chat');
-      const chatBodyReset = chatFrame.contentDocument && chatFrame.contentDocument.body;
-      if (chatBodyReset) chatBodyReset.classList.remove('chat-lg');
-        const fd = chatFrame.contentDocument;
-        const frameApp = fd && fd.querySelector('.app');
-        const frameFab = fd && fd.getElementById('fab');
-        if (frameApp) frameApp.classList.remove('app--hidden', 'app--full');
-        if (frameFab) frameFab.classList.add('hidden');
+        const rect = fabButton.getBoundingClientRect();
+        createParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        fabButton.classList.add('exploding');
+        setTimeout(() => {
+          chatWindow.classList.remove('hidden-chat');
+          chatWindow.classList.add('active-chat');
+          const chatBodyReset = chatFrame.contentDocument && chatFrame.contentDocument.body;
+          if (chatBodyReset) chatBodyReset.classList.remove('chat-lg');
+          const fd = chatFrame.contentDocument;
+          const frameApp = fd && fd.querySelector('.app');
+          const frameFab = fd && fd.getElementById('fab');
+          if (frameApp) frameApp.classList.remove('app--hidden', 'app--full');
+          if (frameFab) frameFab.classList.add('hidden');
+        }, 200);
       }
     });
 
@@ -438,6 +472,7 @@
       chatWindow.classList.remove('chat-fullscreen');
       chatWindow.classList.remove('active-chat');
       chatWindow.classList.add('hidden-chat');
+      setTimeout(() => fabButton.classList.remove('exploding'), 300);
     }
 
     chatFrame.addEventListener('load', () => {

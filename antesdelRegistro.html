@@ -373,6 +373,20 @@
           object-fit: contain;
         }
     </style>
+<style data-purpose="footer-siempre-claro">
+        /* Footer siempre claro: fondo crema y contenido en azul oscuro (aplica en modo claro y oscuro) */
+        html footer {
+          background-color: #f7efd0 !important;
+          color: #180F43 !important;
+          border-color: rgba(24, 15, 67, 0.15) !important;
+          box-shadow: 0 -4px 12px rgba(24, 15, 67, 0.15) !important;
+        }
+        html footer p,
+        html footer span,
+        html footer a:not([aria-label]) { color: rgba(24, 15, 67, 0.8) !important; }
+        html footer a:not([aria-label]):hover { color: #EE4599 !important; }
+        html footer a[aria-label="TikTok"] svg { fill: #010101 !important; }
+    </style>
 </head>
 <body class="font-roboto text-slate-800" style="min-height: 100vh; margin: 0px;" >
 <!-- BEGIN: Estrellas 3D decorativas distribuidas (1-2 por pantalla) -->
@@ -486,7 +500,7 @@
 </div>
 <!-- END: Mobile Menu Drawer -->
 <!-- BEGIN: MainContent -->
-<main class="relative flex items-center justify-center min-h-[calc(100vh-64px)] z-20 overflow-hidden p-4">
+<main class="relative flex items-center justify-center min-h-[calc(100vh-64px)] z-20 overflow-hidden pt-16 p-4">
 <div class="relative max-w-sm w-full flex flex-col items-center justify-center z-20 px-4 gap-4 mt-8 lg:max-w-2xl">
 <!-- Top: Informative Yellow 3D Card -->
 <div class="relative w-full flex items-center justify-center order-1">
@@ -504,7 +518,7 @@
 </div>
 <div class="flex flex-col sm:flex-row gap-3 items-center justify-center w-full px-2 z-50 mt-4">
 <button class="text-lukash-dark font-fredoka font-bold uppercase rounded-2xl transition-all text-base w-full max-w-[300px] lg:text-lg active:translate-y-[2px]" style="background-color: rgb(250, 216, 116); border-bottom: 3px solid rgb(213, 176, 0); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 0px; padding: 12px 24px" onclick="location.href='Registro.html'">GUARDA TU PROGRESO</button>
-<button class="text-lukash-dark font-fredoka font-bold uppercase rounded-2xl transition-all text-base w-full max-w-[300px] lg:text-lg active:translate-y-[2px]" style="background-color: rgb(250, 216, 116); border-bottom: 3px solid rgb(213, 176, 0); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 0px; padding: 12px 24px" onclick="location.href='lukash-chat.html?full=1'">GUÍA PERSONALIZADA</button>
+<button class="text-lukash-dark font-fredoka font-bold uppercase rounded-2xl transition-all text-base w-full max-w-[300px] lg:text-lg active:translate-y-[2px]" style="background-color: rgb(250, 216, 116); border-bottom: 3px solid rgb(213, 176, 0); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 0px; padding: 12px 24px" onclick="window.openLukashChat()">GUÍA PERSONALIZADA</button>
 </div>
 </div>
 </div>
@@ -726,6 +740,11 @@
       chatWindow.classList.add("hidden-chat");
       setTimeout(function () { fabButton.classList.remove("exploding"); }, 300);
     }
+
+    // Expone el abrir del chat para que el boton "GUÍA PERSONALIZADA" presione el boton fijo de chat de esta pantalla
+    window.openLukashChat = function () {
+      fabButton.click();
+    };
 
     chatFrame.addEventListener("load", function () {
       const frameDocument = chatFrame.contentDocument;

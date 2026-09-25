@@ -779,7 +779,7 @@
       100% { transform: scale(1) translate(var(--tx), var(--ty)); opacity: 0; }
     }
     .particle { position: absolute; border-radius: 50%; pointer-events: none; animation: fab-explode 0.6s ease-out forwards; }
-    .chat-window { transform-origin: bottom right; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    #chat-window.chat-window { position: fixed; transform-origin: bottom right; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .chat-window.hidden-chat { transform: scale(0); opacity: 0; pointer-events: none; }
     .chat-window.active-chat { transform: scale(1); opacity: 1; pointer-events: auto; }
     #chat-frame { width: 100%; height: 100%; border: 0; display: block; }

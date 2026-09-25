@@ -50,8 +50,9 @@
             background: var(--bg-gradient-main);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
             overflow-x: hidden;
         }
 
@@ -287,6 +288,20 @@
           max-width: none;
           object-fit: contain;
         }
+    </style>
+<style data-purpose="footer-siempre-claro">
+        /* Footer siempre claro: fondo crema y contenido en azul oscuro (aplica en modo claro y oscuro) */
+        html footer {
+          background-color: #f7efd0 !important;
+          color: #180F43 !important;
+          border-color: rgba(24, 15, 67, 0.15) !important;
+          box-shadow: 0 -4px 12px rgba(24, 15, 67, 0.15) !important;
+        }
+        html footer p,
+        html footer span,
+        html footer a:not([aria-label]) { color: rgba(24, 15, 67, 0.8) !important; }
+        html footer a:not([aria-label]):hover { color: #EE4599 !important; }
+        html footer a[aria-label="TikTok"] svg { fill: #010101 !important; }
     </style>
 </head>
 <body class="font-roboto text-slate-800" style="margin: 0px;">

@@ -223,12 +223,12 @@
        así que html debe recortar el scroll horizontal en pantallas móviles
        para que el layout viewport permanezca en el ancho real del dispositivo */
     html {
-      overflow-x: hidden;
+      overflow-x: clip;
     }
     body {
       background: linear-gradient(180deg, #1A0B3B 0%, #B12E7B 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
+      min-height: 100dvh;
+      overflow-x: clip;
     }
     
     /* Diagonal Tape Decoration */
@@ -468,7 +468,7 @@
         }
     </style>
 </head>
-<body class="font-roboto text-slate-800" style="min-height: 100vh; margin: 0px;" >
+<body class="font-roboto text-slate-800" style="min-height: 100dvh; margin: 0px;" >
 <!-- BEGIN: Estrellas 3D decorativas distribuidas (1-2 por pantalla) -->
 <style data-purpose="decorative-stars">
   .deco-stars {
@@ -583,8 +583,8 @@
 <!-- Las cintas con GIF ahora viven dentro de main, ancladas a la tarjeta de registro -->
 <!-- END: DecorativeElements -->
 <!-- BEGIN: MainContent -->
-<main class="relative flex items-center justify-center min-h-[calc(100vh-64px)] p-6 z-20">
-<div class="relative w-full max-w-sm">
+<main class="relative flex min-h-[calc(100dvh-64px)] p-6 z-20">
+<div class="relative w-full max-w-sm m-auto">
 <!-- Cinta de fondo: diagonal atrás de la tarjeta, de derecha a izquierda -->
 <div class="diagonal-tape pointer-events-none opacity-80 lg:opacity-100" style="position:absolute; top:48%; left:50%; width:200vw; transform:translate(-50%,-50%) rotate(-12deg); transform-origin:center center; z-index:5"><div class="tape-content"><div class="tape-panel"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"></div><div class="tape-panel"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"><img class="logo-tape" alt="Logo LUKA$H" src="images/Recurso%2017.png"><img class="star-tape" alt="" src="images/estrella.png"></div></div></div>
 <!-- BEGIN: LoginModal -->
