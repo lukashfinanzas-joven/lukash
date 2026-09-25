@@ -58,13 +58,13 @@
     .carousel-container {
       perspective: 1200px;
       will-change: transform;
-      height: clamp(280px, 50vh, 440px);
+      height: clamp(200px, 36vh, 300px);
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       z-index: 10;
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
       touch-action: pan-y;
       user-select: none;
       -webkit-user-select: none;
@@ -72,10 +72,10 @@
 
     .carousel-item {
       position: absolute;
-      width: 210px;
-      height: 210px;
+      width: 150px;
+      height: 150px;
       cursor: pointer;
-      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease, box-shadow 0.4s ease;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, box-shadow 0.4s ease;
       user-select: none;
       perspective: 1000px;
     }
@@ -83,14 +83,14 @@
     .carousel-item.init-state {
       transform: translate3d(0, 0, 0) scale(0.2) !important;
       opacity: 0 !important;
-      transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1.2s ease !important;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease !important;
     }
 
     @media (min-width: 640px) {
-      .carousel-item { width: 250px; height: 250px; }
+      .carousel-item { width: 180px; height: 180px; }
     }
     @media (min-width: 1024px) {
-      .carousel-item { width: 290px; height: 290px; }
+      .carousel-item { width: 210px; height: 210px; }
     }
 
     /* Fondos translúcidos por red (para verse bien sobre fondo_.png en modo oscuro) */
@@ -102,24 +102,24 @@
 
     /* Posiciones del carrusel de 5 tarjetas */
     @media (max-width: 639px) {
-      .pos-0 { transform: translate3d(0, 0, 100px) scale(1); z-index: 10; opacity: 1; }
-      .pos-1 { transform: translate3d(80px, 0, -40px) scale(0.85) rotateY(-15deg); z-index: 5; opacity: 0.8; }
-      .pos-4 { transform: translate3d(-80px, 0, -40px) scale(0.85) rotateY(15deg); z-index: 5; opacity: 0.8; }
-      .pos-2 { transform: translate3d(45px, 0, -150px) scale(0.68); z-index: 2; opacity: 0.5; }
-      .pos-3 { transform: translate3d(-45px, 0, -150px) scale(0.68); z-index: 2; opacity: 0.5; }
+      .pos-0 { transform: translate3d(0, 0, 60px) scale(1); z-index: 10; opacity: 1; }
+      .pos-1 { transform: translate3d(42px, 0, -30px) scale(0.85) rotateY(-12deg); z-index: 5; opacity: 0.8; }
+      .pos-4 { transform: translate3d(-42px, 0, -30px) scale(0.85) rotateY(12deg); z-index: 5; opacity: 0.8; }
+      .pos-2 { transform: translate3d(22px, 0, -90px) scale(0.72); z-index: 2; opacity: 0.5; }
+      .pos-3 { transform: translate3d(-22px, 0, -90px) scale(0.72); z-index: 2; opacity: 0.5; }
     }
     @media (min-width: 640px) {
-      .pos-0 { transform: translate3d(0, 0, 100px) scale(1); z-index: 10; opacity: 1; }
-      .pos-1 { transform: translate3d(200px, 0, -80px) scale(0.85) rotateY(-20deg); z-index: 5; opacity: 0.8; }
-      .pos-4 { transform: translate3d(-200px, 0, -80px) scale(0.85) rotateY(20deg); z-index: 5; opacity: 0.8; }
-      .pos-2 { transform: translate3d(110px, 0, -260px) scale(0.68); z-index: 2; opacity: 0.5; }
-      .pos-3 { transform: translate3d(-110px, 0, -260px) scale(0.68); z-index: 2; opacity: 0.5; }
+      .pos-0 { transform: translate3d(0, 0, 60px) scale(1); z-index: 10; opacity: 1; }
+      .pos-1 { transform: translate3d(90px, 0, -50px) scale(0.85) rotateY(-15deg); z-index: 5; opacity: 0.8; }
+      .pos-4 { transform: translate3d(-90px, 0, -50px) scale(0.85) rotateY(15deg); z-index: 5; opacity: 0.8; }
+      .pos-2 { transform: translate3d(50px, 0, -140px) scale(0.72); z-index: 2; opacity: 0.5; }
+      .pos-3 { transform: translate3d(-50px, 0, -140px) scale(0.72); z-index: 2; opacity: 0.5; }
     }
     @media (min-width: 1024px) {
-      .pos-1 { transform: translate3d(300px, 0, -100px) scale(0.85) rotateY(-25deg); }
-      .pos-4 { transform: translate3d(-300px, 0, -100px) scale(0.85) rotateY(25deg); }
-      .pos-2 { transform: translate3d(150px, 0, -320px) scale(0.68); }
-      .pos-3 { transform: translate3d(-150px, 0, -320px) scale(0.68); }
+      .pos-1 { transform: translate3d(150px, 0, -60px) scale(0.85) rotateY(-18deg); }
+      .pos-4 { transform: translate3d(-150px, 0, -60px) scale(0.85) rotateY(18deg); }
+      .pos-2 { transform: translate3d(80px, 0, -170px) scale(0.72); }
+      .pos-3 { transform: translate3d(-80px, 0, -170px) scale(0.72); }
     }
 
     .pos-0 .card-front, .pos-0 .card-back {
@@ -145,7 +145,7 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 30px;
+      border-radius: 18px;
       border: 1.5px solid rgba(255,255,255,0.5);
       background-image: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 55%, rgba(255,255,255,0.14) 100%);
       box-shadow: 0 18px 45px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.6), inset 0 0 20px rgba(255,255,255,0.22);
@@ -153,7 +153,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.1rem;
+      padding: 0.6rem;
       text-align: center;
     }
     .card-back { transform: rotateY(180deg); }
@@ -163,8 +163,8 @@
       font-weight: 700;
       text-transform: uppercase;
       line-height: 1.05;
-      font-size: clamp(0.95rem, 3.4vw, 1.6rem);
-      margin: 0.15rem 0 0.4rem;
+      font-size: clamp(0.72rem, 2.6vw, 1.1rem);
+      margin: 0.1rem 0 0.25rem;
     }
 
     .card-btn {
@@ -172,34 +172,34 @@
       color: #180F43;
       font-family: 'Fredoka', sans-serif;
       font-weight: 700;
-      padding: clamp(4px, 1.5vw, 6px) clamp(12px, 3vw, 18px);
-      font-size: clamp(0.75rem, 2vw, 1rem);
+      padding: clamp(3px, 1.2vw, 5px) clamp(8px, 2.4vw, 14px);
+      font-size: clamp(0.6rem, 1.8vw, 0.85rem);
       border-radius: 12px;
       border: none;
       box-shadow: 0 5px 0 #C9BFB0;
       cursor: pointer;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
-      margin-top: 0.7rem;
+      margin-top: 0.5rem;
       z-index: 20;
     }
     .card-btn:active { transform: scale(0.96); box-shadow: none; }
 
     .card-icon {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
       display: flex;
       justify-content: center;
       align-items: center;
       height: auto;
-      min-height: 46px;
+      min-height: 34px;
     }
     .card-icon svg {
-      width: clamp(56px, 12vw, 92px);
+      width: clamp(36px, 9vw, 60px);
       height: auto;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
     }
     .card-icon .stroke-white { stroke: #fff; }
     .tiktok-glyph {
-      font-size: clamp(50px, 13vw, 88px);
+      font-size: clamp(34px, 10vw, 58px);
       line-height: 1;
       color: #fff;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
@@ -207,8 +207,8 @@
 
     .card-text {
       font-family: 'Roboto', sans-serif;
-      font-size: clamp(0.78rem, 2.4vw, 1rem);
-      line-height: 1.35;
+      font-size: clamp(0.6rem, 2vw, 0.8rem);
+      line-height: 1.25;
       margin: 0 0 0.25rem;
     }
 
@@ -231,8 +231,14 @@
         html.dark .theme-toggle .icon-sun { display: block; }
 
         /* Ajustes de modo oscuro (tema unificado con tokens de DESIGN.md) */
-        /* Fondo de contáctanos: color claro fijo */
-        html body { background-color: #f7efd0 !important; background-image: none !important; }
+        /* Fondo de contáctanos: claro en tema claro, oscuro (fondo_.png) en modo oscuro */
+        html:not(.dark) body { background-color: #f7efd0 !important; background-image: none !important; color: #181428 !important; }
+        html.dark body { background-color: #211941 !important; background-image: url("images/fondo_.png") !important; background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; background-attachment: fixed !important; color: #EEE8E0 !important; }
+        /* En modo oscuro los textos en azul oscuro pasan al color crema del diseño */
+        html.dark .fade-slide-in { color: #EEE8E0 !important; }
+        html.dark .card-btn { background-color: #180F43 !important; color: #EEE8E0 !important; box-shadow: 0 5px 0 #0F0B2A !important; }
+        /* Fondo orgánico claro: se oculta en modo oscuro */
+        html.dark #bg-organic { display: none !important; }
         html:not(.dark) #main-header { background-color: #211941 !important; color: #EEE8E0; border-color: rgba(231,193,31,0.4); }
         html:not(.dark) #main-header svg * { stroke: #EEE8E0; }
         html:not(.dark) #main-header .text-lukash-dark { color: #EEE8E0; }
@@ -267,7 +273,7 @@
         .fade-slide-in {
           opacity: 0;
           transform: translateY(14px);
-          animation: fade-slide-in 0.9s ease-out 0.2s forwards;
+          animation: fade-slide-in 0.55s ease-out 0.1s forwards;
         }
         @keyframes fade-slide-in {
           to { opacity: 1; transform: translateY(0); }
@@ -426,7 +432,7 @@
 <!-- END: Mobile Menu Drawer -->
 <!-- BEGIN: OrganicBackgroundGraphics -->
 <!-- Recurso de fondo orgánico derecho anclado con pointer-events-none escalado armónicamente -->
-<div aria-hidden="true" class="fixed inset-0 w-screen h-screen pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center"><img alt="" class="w-full h-full object-cover pointer-events-none select-none opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD90V70XqK6sK7yCGKDXVlJLB0gHlUkQWJQzWbTjHL7tItyuQNOCiDI0-lgrndaBWEovAEvZlThrcn--4m9r-d-Hn9hlaAWw7UhF1Wi42iugYYrPV_3Bbiom4cFPUtMFmoUCZQM83lzG-vfSrN9HNfXj6hNze8BGi6zkHoiAbuHCfU6o6-ngbgtB5HLGGrj1yx2cfRvS3TSNcb9KLiJeVB-Rbu3FA7YZVe7o3stb6A0Af3jzi_uzMNqV4z7p9e6-wZZgPE"/></div>
+<div aria-hidden="true" class="fixed inset-0 w-screen h-screen pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center" id="bg-organic"><img alt="" class="w-full h-full object-cover pointer-events-none select-none opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD90V70XqK6sK7yCGKDXVlJLB0gHlUkQWJQzWbTjHL7tItyuQNOCiDI0-lgrndaBWEovAEvZlThrcn--4m9r-d-Hn9hlaAWw7UhF1Wi42iugYYrPV_3Bbiom4cFPUtMFmoUCZQM83lzG-vfSrN9HNfXj6hNze8BGi6zkHoiAbuHCfU6o6-ngbgtB5HLGGrj1yx2cfRvS3TSNcb9KLiJeVB-Rbu3FA7YZVe7o3stb6A0Af3jzi_uzMNqV4z7p9e6-wZZgPE"/></div>
 <!-- END: OrganicBackgroundGraphics -->
 <!-- BEGIN: MainContent -->
 <main class="relative z-10 w-full max-w-5xl h-full flex flex-col items-center box-border px-4 py-6 md:py-10 lg:py-12 select-none justify-center" style="padding-top: 7rem;">
@@ -530,10 +536,12 @@
     const items = document.querySelectorAll('.carousel-item');
     const total = items.length;
     const colorNames = ['color-youtube', 'color-facebook', 'color-tiktok', 'color-gmail', 'color-instagram'];
-    let currentIndex = 0;
+    let currentIndex = total - 1; // Instagram arranca SIEMPRE al frente
     let isRotating = false;
 
-    setTimeout(() => items.forEach(item => item.classList.remove('init-state')), 50);
+    // Entrada rápida: las tarjetas parten del estado oculto y entran en ~0.5s
+    items.forEach(item => item.classList.add('init-state'));
+    setTimeout(() => { updateLayout(); }, 60);
 
     function openSocialLink(url) {
       if (!url) return;
@@ -566,7 +574,7 @@
         if (inner) inner.classList.remove('is-flipped');
       });
       updateLayout();
-      setTimeout(() => { isRotating = false; }, 800);
+      setTimeout(() => { isRotating = false; }, 600);
     }
 
     items.forEach(item => {
@@ -682,13 +690,21 @@
 </script>
 <script data-purpose="theme-toggle">
   (function () {
-    // Contáctanos se muestra SIEMPRE en modo claro: se quita el modo oscuro
-    // y el botón de tema queda sin efecto para que no cambie su apariencia.
+    // Contáctanos ya soporta modo oscuro: se sincroniza con las demás pantallas
+    // usando la misma clave de localStorage y el mismo botón de luna/sol.
+    var key = 'lukash-theme';
     var root = document.documentElement;
-    root.classList.remove('dark');
+    var apply = function (dark) {
+      root.classList.toggle('dark', dark);
+      try { localStorage.setItem(key, dark ? 'dark' : 'light'); } catch (e) {}
+    };
     var toggles = document.querySelectorAll('.theme-toggle');
+    var stored = null;
+    try { stored = localStorage.getItem(key); } catch (e) {}
+    var shouldDark = stored ? (stored === 'dark') : root.classList.contains('dark');
+    apply(shouldDark);
     toggles.forEach(function (t) {
-      t.addEventListener('click', function () { root.classList.remove('dark'); });
+      t.addEventListener('click', function () { apply(!root.classList.contains('dark')); });
     });
   })();
 </script>
@@ -742,7 +758,7 @@
     var full = el.textContent.trim();
     el.textContent = '';
     var started = false;
-    var speed = 150;
+    var speed = 70;
 
     function typeWriter() {
       if (started) return;
@@ -763,9 +779,9 @@
     var intro = document.querySelector('.fade-slide-in');
     if (!intro) { typeWriter(); return; }
     intro.addEventListener('animationend', function () {
-      setTimeout(typeWriter, 700);
+      setTimeout(typeWriter, 250);
     }, { once: true });
-    setTimeout(typeWriter, 3200);
+    setTimeout(typeWriter, 1600);
   })();
 </script>
 
